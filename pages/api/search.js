@@ -16,6 +16,8 @@ export default async(req, res) => {
             json: true,
             headers: HEADERS
         }))
+        res.header("Access-Control-Allow-Origin", "*");
+
     } catch (e) {
         res.json({ error: e.massage })
     }

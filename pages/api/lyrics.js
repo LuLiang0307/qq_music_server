@@ -18,6 +18,8 @@ export default async(req, res) => {
             headers: HEADERS
         })).replace(/MusicJsonCallback\((.*)\)/, '$1')
         res.json(JSON.parse(text))
+        res.header("Access-Control-Allow-Origin", "*");
+
     } catch (e) {
         res.json({ error: e.massage })
     }
