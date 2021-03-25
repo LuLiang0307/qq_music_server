@@ -7,7 +7,7 @@ const HEADERS = {
 }
 
 const request = require('request-promise');
-app.get('/search', async(req, res) => {
+export default async(req, res) => {
     const { keyword, page = 1 } = req.query
     const url = `https://c.y.qq.com/soso/fcgi-bin/search_for_qq_cp?_=${+new Date()}&g_tk=5381&uin=&format=json&inCharset=utf-8&outCharset=utf-8&notice=0&platform=h5&needNewCode=1&w=${encodeURIComponent(keyword)}&zhidaqu=1&catZhida=1&t=0&flag=1&ie=utf-8&sem=1&aggr=0&perpage=20&n=20&p=${page}&remoteplace=txt.mqq.all`
     try {
@@ -19,4 +19,4 @@ app.get('/search', async(req, res) => {
     } catch (e) {
         res.json({ error: e.massage })
     }
-})
+}

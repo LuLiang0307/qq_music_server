@@ -8,7 +8,7 @@ const HEADERS = {
 
 const request = require('request-promise');
 
-app.get('/lyrics', async(req, res) => {
+export default async(req, res) => {
     let { id, type = 0 } = req.query
     const url = `https://c.y.qq.com/lyric/fcgi-bin/fcg_query_lyric.fcg?g_tk=1775699468&uin=2313970630&format=json&inCharset=utf-8&outCharset=utf-8&notice=0&platform=h5&needNewCode=1&g_tk_new_20200303=1775699468&nobase64=1&musicid=${id}&songtype=${type}&_=${+ new Date()}`
     try {
@@ -21,4 +21,4 @@ app.get('/lyrics', async(req, res) => {
     } catch (e) {
         res.json({ error: e.massage })
     }
-})
+}
