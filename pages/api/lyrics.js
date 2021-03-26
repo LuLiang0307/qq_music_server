@@ -1,3 +1,6 @@
+const cors = require('cors');
+const express = require('express');
+const app = express()
 const HEADERS = {
     'authority': "u.y.qq.com",
     'accept': "application / json",
@@ -5,7 +8,7 @@ const HEADERS = {
     'origin': "https://i.y.qq.com",
     'referer': "https://i.y.qq.com/",
 }
-
+app.use(cors())
 const request = require('request-promise');
 
 export default async(req, res) => {
