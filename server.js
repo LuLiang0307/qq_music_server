@@ -4,7 +4,7 @@ const proxyMiddleware = require('http-proxy-middleware')
 
 const devProxy = {
     '/api': {
-        target: 'http://localhost:5500', // 端口自己配置合适的
+        target: 'http://127.0.0.1:5500', // 端口自己配置合适的
         pathRewrite: {
             '^/api': '/'
         },
