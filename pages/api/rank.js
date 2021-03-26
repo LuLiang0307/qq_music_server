@@ -5,6 +5,7 @@ const HEADERS = {
     'origin': "https://i.y.qq.com",
     'referer': "https://i.y.qq.com/",
     'Access-Control-Allow-Origin': '*',
+    "Access-Control-Allow-Methods": "GET, POST",
     "Content-Type": 'text/plain'
 }
 
