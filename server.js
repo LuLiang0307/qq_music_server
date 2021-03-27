@@ -1,6 +1,6 @@
 const express = require('express')
 const next = require('next')
-const proxyMiddleware = require('http-proxy-middleware')
+const { createProxyMiddleware } = require('http-proxy-middleware')
 
 const devProxy = {
     '/api': {
@@ -25,7 +25,7 @@ app.prepare()
 
         if (dev && devProxy) {
             Object.keys(devProxy).forEach(function(context) {
-                server.use(proxyMiddleware(context, devProxy[context]))
+                server.use(createProxyMiddleware(context, devProxy[context]))
             })
         }
 
