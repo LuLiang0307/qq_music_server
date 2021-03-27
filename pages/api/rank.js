@@ -6,10 +6,20 @@ const HEADERS = {
     'accept': "application / json",
     'user-agent': "Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1",
     'origin': "https://i.y.qq.com",
-    'referer': "https://i.y.qq.com/"
+    'referer': "https://i.y.qq.com/",
+
 }
 app.use(cors())
-
+    // 解决跨域问题
+app.all("/*", function(req, res, next) {
+    // 跨域处理
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
+    res.header("X-Powered-By", ' 3.2.1');
+    res.header("Content-Type", "application/json;charset=utf-8");
+    next(); // 执行下一个路由
+})
 const request = require('request-promise');
 
 export default async(req, res) => {
